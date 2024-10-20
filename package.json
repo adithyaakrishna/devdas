@@ -2,14 +2,28 @@
   "name": "devdas",
   "displayName": "Devdas: Twitter Interaction Reminder",
   "description": "A VSCode extension to remind you to reply and like your girl's tweets",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "publisher": "AdithyaKris",
   "engines": {
     "vscode": "^1.94.0"
+  },
+  "author": {
+    "name": "Adithya Krishna",    
+    "email": "aadithya794@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adithyaakrishna/devdas.git"
   },
   "categories": [
     "Other"
   ],
+  "activationEvents": [
+    "onView:devdasTwitterReminder"
+  ],
   "main": "./dist/extension.js",
+  "icon": "media/ribbon.png",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
@@ -31,28 +45,14 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run package",
-    "compile": "webpack",
-    "watch": "webpack --watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
-    "compile-tests": "tsc -p . --outDir out",
-    "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^16.x",
     "@types/vscode": "^1.94.0",
-    "@types/mocha": "^10.0.8",
-    "@types/node": "20.x",
-    "@typescript-eslint/eslint-plugin": "^8.7.0",
-    "@typescript-eslint/parser": "^8.7.0",
-    "eslint": "^9.11.1",
-    "typescript": "^5.6.2",
-    "ts-loader": "^9.5.1",
-    "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "typescript": "^4.x"
   }
 }
